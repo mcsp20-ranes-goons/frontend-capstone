@@ -1,6 +1,3 @@
-import React from "react";
-import "./EditionsAddons.css";
-
 function EditionsAddons() {
   //useEffect to fetch EditionsAddons data from API
   return (
