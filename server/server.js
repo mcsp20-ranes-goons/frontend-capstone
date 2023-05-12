@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/product", async (req, res) => {
   try{
-    let result = await pool.query('SELECT * FROM Product')
+    let result = await pool.query('SELECT * FROM product')
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({message:`Something went wrong: ${err}`})
