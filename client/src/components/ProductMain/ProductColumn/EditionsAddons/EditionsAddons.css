@@ -8,9 +8,10 @@
 
 } */
 
-/* .editionsContainer {
-
-} */
+.editionsContainer,
+.addonsContainer {
+    margin: 10px;
+}
 
 .titleName {
     width: 76px;
@@ -21,6 +22,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
+    margin-left: 10px;
 
     /* display: flex; */
     /* align-items: center; */
@@ -34,10 +36,12 @@
 
 
 
-.edition {
+.edition,
+.add-on {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: 10px;
 }
 
 /* .editionUpper,
@@ -45,7 +49,7 @@
     @apply bg-neutral-700;
 } */
 
-.editionUpper {
+.upper {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -63,7 +67,7 @@
     flex-grow: 0; */
 }
 
-.baseGameImg {
+.image {
     width: 285px;
     height: 160.31px;
 }
@@ -100,7 +104,7 @@
 
 } */
 
-.editionLower {
+.lower {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
