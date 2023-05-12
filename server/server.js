@@ -25,6 +25,15 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/api/product", async (req, res) => {
+  try{
+    let result = await pool.query('SELECT * FROM product')
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({message:`Something went wrong: ${err}`})
+  }
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server listening on port ${process.env.PORT || 3000}`);
 });
