@@ -2,7 +2,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 
 function ProductRating() {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-1 my-2">
       <div className="flex">
         <StarIcon className="h-4 w-4" />
         <StarIcon className="h-4 w-4" />
