@@ -41,26 +41,42 @@ function MediaCarousel() {
           
 return (
       <div>
-          <div className='max-w-[866px] h-[486px] w-full m-auto py-16 px-4 relative group'>
-          <div className="w-full h-full rounded-2xl bg-black">
-            {slides[currentIndex]}
+        <div className='flex w-full bg-black relative group'>
+
+          <div className="absolute group flex justify-between z-1 w-full h-full">
+            <div className="h-full -translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 text-white cursor-pointer">
+              <BsChevronCompactLeft onClick={nextSlide} className="h-8 w-8"  />
+            </div>
+            <div className="h-full translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 text-white cursor-pointer">
+              <BsChevronCompactRight onClick={prevSlide} className="h-8 w-8" />
+            </div>
           </div>
+
+            <div className="w-full rounded-2xl bg-black">
+              <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls autoPlay>Video not supported</video>
+              {/* {slides[currentIndex]} */}
+            </div>
+        </div>
+
           {/*left arrow*/}
-          <div className="hidden group-hover:block absolute top-[50% -translate-x-0 tranlate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-            <BsChevronCompactLeft onClick={prevSlide} size={30}/>
+          <div className="absolute top-[50% -translate-x-0 tranlate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <BsChevronCompactRight onClick={prevSlide} size={30}/>
           </div>
+
           {/*right arrow*/}
-          <div className="hidden group-hover:block absolute top-[50% -translate-x-0 tranlate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-            <BsChevronCompactRight onClick={nextSlide} size={30}/>
+          <div className="absolute top-[50% -translate-x-0 tranlate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <BsChevronCompactLeft onClick={nextSlide} size={30}/>
           </div>
+
           <div className="flex top-4 justify-center py-2">
             {slides.map((slide, slideIndex) => (
               <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer">
                 <RxDotFilled />
               </div>
             ))}
+            
           </div>
-          </div>
+        
       </div>
     );
   }
