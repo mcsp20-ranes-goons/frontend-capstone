@@ -32,7 +32,17 @@ function Ratings() {
           </div>
         </div>
 
-        <p className="text-neutral-400 flex items-center gap-1">SEE ALL REVIEWS<ArrowTopRightOnSquareIcon className="h-4 w-4"/></p>
+        <a
+          href={
+            {
+              /* TODO */
+            }
+          }
+          className="text-neutral-400 flex items-center gap-1"
+        >
+          SEE ALL REVIEWS
+          <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+        </a>
       </div>
 
       <div className="flex gap-4 my-4">
@@ -41,24 +51,78 @@ function Ratings() {
           <h3 className="text-neutral-400">by Matt Miller</h3>
           <hr className="border-neutral-700 my-4" />
           <p className="mb-4">9.25/10</p>
-          <p className="text-neutral-400 mb-4">Developer Respawn Entertainment clearly took a measured and thoughtful approach to analyze what worked and what didn’t in its last Star Wars game, and Jedi: Survivor feels like a worthy attempt at evolution. It captures the magic of Star Wars as well as anything in the current canon, and it’s a stellar adventure in its own right.</p>
-          <p><a className="underline flex items-center text-neutral-400 gap-1" href={{/* TODO */}}>READ FULL REVIEW<ArrowTopRightOnSquareIcon className="h-4 w-4"/></a></p>
+          <p className="text-neutral-400 mb-4">
+            Developer Respawn Entertainment clearly took a measured and
+            thoughtful approach to analyze what worked and what didn't in its
+            last Star Wars game, and Jedi: Survivor feels like a worthy attempt
+            at evolution. It captures the magic of Star Wars as well as anything
+            in the current canon, and it's a stellar adventure in its own right.
+          </p>
+          <p>
+            <a
+              className="underline flex items-center text-neutral-400 gap-1"
+              href={
+                {
+                  /* TODO */
+                }
+              }
+            >
+              READ FULL REVIEW
+              <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+            </a>
+          </p>
         </div>
         <div className="bg-neutral-800 p-4">
           <h2>Game Informer</h2>
           <h3 className="text-neutral-400">by Matt Miller</h3>
           <hr className="border-neutral-700 my-4" />
           <p className="mb-4">9.25/10</p>
-          <p className="text-neutral-400 mb-4">Developer Respawn Entertainment clearly took a measured and thoughtful approach to analyze what worked and what didn’t in its last Star Wars game, and Jedi: Survivor feels like a worthy attempt at evolution. It captures the magic of Star Wars as well as anything in the current canon, and it’s a stellar adventure in its own right.</p>
-          <p><a className="underline flex items-center text-neutral-400 gap-1" href={{/* TODO */}}>READ FULL REVIEW<ArrowTopRightOnSquareIcon className="h-4 w-4"/></a></p>
+          <p className="text-neutral-400 mb-4">
+            Developer Respawn Entertainment clearly took a measured and
+            thoughtful approach to analyze what worked and what didn't in its
+            last Star Wars game, and Jedi: Survivor feels like a worthy attempt
+            at evolution. It captures the magic of Star Wars as well as anything
+            in the current canon, and it's a stellar adventure in its own right.
+          </p>
+          <p>
+            <a
+              className="underline flex items-center text-neutral-400 gap-1"
+              href={
+                {
+                  /* TODO */
+                }
+              }
+            >
+              READ FULL REVIEW
+              <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+            </a>
+          </p>
         </div>
         <div className="bg-neutral-800 p-4">
           <h2>Game Informer</h2>
           <h3 className="text-neutral-400">by Matt Miller</h3>
           <hr className="border-neutral-700 my-4" />
           <p className="mb-4">9.25/10</p>
-          <p className="text-neutral-400 mb-4">Developer Respawn Entertainment clearly took a measured and thoughtful approach to analyze what worked and what didn’t in its last Star Wars game, and Jedi: Survivor feels like a worthy attempt at evolution. It captures the magic of Star Wars as well as anything in the current canon, and it’s a stellar adventure in its own right.</p>
-          <p><a className="underline flex items-center text-neutral-400 gap-1" href={{/* TODO */}}>READ FULL REVIEW<ArrowTopRightOnSquareIcon className="h-4 w-4"/></a></p>
+          <p className="text-neutral-400 mb-4">
+            Developer Respawn Entertainment clearly took a measured and
+            thoughtful approach to analyze what worked and what didn't in its
+            last Star Wars game, and Jedi: Survivor feels like a worthy attempt
+            at evolution. It captures the magic of Star Wars as well as anything
+            in the current canon, and it's a stellar adventure in its own right.
+          </p>
+          <p>
+            <a
+              className="underline flex items-center text-neutral-400 gap-1"
+              href={
+                {
+                  /* TODO */
+                }
+              }
+            >
+              READ FULL REVIEW
+              <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+            </a>
+          </p>
         </div>
       </div>
       <p className="text-sm text-neutral-400">Reviews provided by OpenCritic</p>
