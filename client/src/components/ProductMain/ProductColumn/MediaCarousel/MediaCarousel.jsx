@@ -6,23 +6,23 @@ import {RxDotFilled} from 'react-icons/rx';
 function MediaCarousel() {
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState([0]);
-  const [slides, setSlides] = useState([]);
+
 
   useEffect(() => {
     fetch('http://localhost:3000/api/media/1')
       .then(response => response.json())
-      .then(data => {
-        setData(data);
-        const slides = data.map((item) => {
-          return {
-            video: `url(${item.url})`
-          }
-        });  
-        setSlides(slides);
-      });
+      .then(data => setData(data));
   }, [])
-  console.log(slides)
+  // console.log(slides)
 
+  
+  const slides = data.map((item, index) => {
+    return (
+     <div key={index} className="slide">
+       <video src={item.url} autoPlay muted loop />
+    </div>
+   );
+  });
 
           const prevSlide = () => {
             const isFirstSlide = currentIndex === 0;
@@ -38,18 +38,12 @@ function MediaCarousel() {
           const goToSlide = (slideIndex) => {
               setCurrentIndex(slideIndex)
           }
-
+          
 return (
       <div>
           <div className='max-w-[866px] h-[486px] w-full m-auto py-16 px-4 relative group'>
           <div className="w-full h-full rounded-2xl bg-black">
-            <video 
-              src="{slides[currentIndex].video}"
-              autoPlay
-              muted
-              loop
-              className="w-full h-full object-cover"
-            />
+            {slides[currentIndex]}
           </div>
           {/*left arrow*/}
           <div className="hidden group-hover:block absolute top-[50% -translate-x-0 tranlate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
