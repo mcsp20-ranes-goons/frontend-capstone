@@ -40,7 +40,7 @@ function Ratings() {
           <h2>Game Informer</h2>
           <h3 className="text-neutral-400">by Matt Miller</h3>
           <hr className="border-neutral-700 my-4" />
-          <p>9.25/10</p>
+          <p className="mb-4">9.25/10</p>
           <p className="text-neutral-400 mb-4">Developer Respawn Entertainment clearly took a measured and thoughtful approach to analyze what worked and what didn’t in its last Star Wars game, and Jedi: Survivor feels like a worthy attempt at evolution. It captures the magic of Star Wars as well as anything in the current canon, and it’s a stellar adventure in its own right.</p>
           <p className="underline flex items-center text-neutral-400 gap-1">READ FULL REVIEW<ArrowTopRightOnSquareIcon className="h-4 w-4"/></p>
         </div>
@@ -48,7 +48,7 @@ function Ratings() {
           <h2>Game Informer</h2>
           <h3 className="text-neutral-400">by Matt Miller</h3>
           <hr className="border-neutral-700 my-4" />
-          <p>9.25/10</p>
+          <p className="mb-4">9.25/10</p>
           <p className="text-neutral-400 mb-4">Developer Respawn Entertainment clearly took a measured and thoughtful approach to analyze what worked and what didn’t in its last Star Wars game, and Jedi: Survivor feels like a worthy attempt at evolution. It captures the magic of Star Wars as well as anything in the current canon, and it’s a stellar adventure in its own right.</p>
           <p className="underline flex items-center text-neutral-400 gap-1">READ FULL REVIEW<ArrowTopRightOnSquareIcon className="h-4 w-4"/></p>
         </div>
@@ -56,7 +56,7 @@ function Ratings() {
           <h2>Game Informer</h2>
           <h3 className="text-neutral-400">by Matt Miller</h3>
           <hr className="border-neutral-700 my-4" />
-          <p>9.25/10</p>
+          <p className="mb-4">9.25/10</p>
           <p className="text-neutral-400 mb-4">Developer Respawn Entertainment clearly took a measured and thoughtful approach to analyze what worked and what didn’t in its last Star Wars game, and Jedi: Survivor feels like a worthy attempt at evolution. It captures the magic of Star Wars as well as anything in the current canon, and it’s a stellar adventure in its own right.</p>
           <p className="underline flex items-center text-neutral-400 gap-1">READ FULL REVIEW<ArrowTopRightOnSquareIcon className="h-4 w-4"/></p>
         </div>
