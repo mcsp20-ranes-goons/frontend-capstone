@@ -5,28 +5,25 @@ import {RxDotFilled} from 'react-icons/rx';
 
 function MediaCarousel() {
   const [data, setData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState([0]);
+  const [slides, setSlides] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/media/1')
       .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error(error));
+      .then(data => {
+        setData(data);
+        const slides = data.map((item) => {
+          return {
+            video: `url(${item.url})`
+          }
+        });  
+        setSlides(slides);
+      });
   }, [])
-  console.log(data)
-      
-          {/* const slides = [
-            {
-               url: data[0].url    
-            }
-            {
-              url: data[1].url
-            }
-            {
-              url: data[2].url
-            }
-          ] */}
+  console.log(slides)
 
-          const [currentIndex, setCurrentIndex] = useState([0]);
+
           const prevSlide = () => {
             const isFirstSlide = currentIndex === 0;
             const newIndex = isFirstSlide ? slides.length -1 : currentIndex -1;
@@ -44,8 +41,16 @@ function MediaCarousel() {
 
 return (
       <div>
-          <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
-          <div style={{backgroundImage: `url(${data[currentIndex]})`}} className="w-full h-full rounded-2xl bg-center bg-cover duration-500"></div>
+          <div className='max-w-[866px] h-[486px] w-full m-auto py-16 px-4 relative group'>
+          <div className="w-full h-full rounded-2xl bg-black">
+            <video 
+              src="{slides[currentIndex].video}"
+              autoPlay
+              muted
+              loop
+              className="w-full h-full object-cover"
+            />
+          </div>
           {/*left arrow*/}
           <div className="hidden group-hover:block absolute top-[50% -translate-x-0 tranlate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
             <BsChevronCompactLeft onClick={prevSlide} size={30}/>
