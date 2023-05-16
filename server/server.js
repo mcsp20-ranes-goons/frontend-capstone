@@ -14,12 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const { Pool } = pg;
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+const pool = new Pool({connectionString: process.env.DATABASE_URL});
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -28,6 +23,25 @@ app.get("/", (req, res) => {
 app.get("/api/product", async (req, res) => {
   try{
     let result = await pool.query('SELECT * FROM product')
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({message:`Something went wrong: ${err}`})
+  }
+});
+
+app.get("/api/media", async (req, res) => {
+  try{
+    let result = await pool.query('SELECT * FROM media')
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({message:`Something went wrong: ${err}`})
+  }
+});
+
+app.get("/api/media/:product_id", async (req, res) => {
+  let id = req.params.product_id;
+  try{
+    let result = await pool.query(`SELECT * FROM media WHERE product_id = $1`, [id])
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({message:`Something went wrong: ${err}`})
