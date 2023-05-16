@@ -17,7 +17,7 @@ function MediaCarousel() {
   const slides = data.map((item, index) => {
     const isVideo = item.mediaType === "video"; // Assuming videos have .mp4 extension
     return (
-      <div className="slide" key={item.url}>
+      <div className="slide" key={item.img} >
         {isVideo ? (
           <video controls src={item.url} autoPlay muted loop />
         ) : (
@@ -75,7 +75,7 @@ return (
               return (
                <div key={slide.key} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
                 {slide.isVideo ? (
-                 <video height="90" width="90" poster={slide.key} src={slide.key} alt="Jedi Survivor" className="rounded"></video>
+                 <video height="90" width="90" poster={slide.img} src={slide.img} alt="Jedi Survivor" className="rounded"></video>
                 ) : (
                <img src={slide.key} alt="Jedi Survivor" className="rounded" />
              )}
