@@ -9,20 +9,20 @@ import Ratings from "./Ratings/Ratings";
 import Specifications from "./Specifications/Specifications";
 
 function ProductColumn() {
-    return (
-      <div>
-          <h1>ProductColumn</h1>
-          <MediaCarousel />
-          <ProductTagline />
-          <GenresFeatures />
-          <ProductDescription />
-          <EditionsAddons />
-          <FollowUs />
-          <EpicRatings />
-          <Ratings />
-          <Specifications />
-      </div>
-    );
-  }
-  
-  export default ProductColumn;
+  return (
+    <div>
+      <h1>ProductColumn</h1>
+      <MediaCarousel />
+      <ProductTagline />
+      <GenresFeatures />
+      <ProductDescription />
+      <EditionsAddons />
+      <FollowUs />
+      <EpicRatings />
+      <Ratings />
+      <Specifications />
+    </div>
+  );
+}
+
+export default ProductColumn;
