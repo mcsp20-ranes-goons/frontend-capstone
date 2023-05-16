@@ -2,7 +2,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 function SecondaryNav() {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center my-6">
       <div className="flex gap-4 items-center">
         <div className="flex items-center">
           <span className="bg-neutral-800 flex items-center justify-center p-3 rounded-l-3xl">
