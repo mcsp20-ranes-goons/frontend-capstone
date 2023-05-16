@@ -13,44 +13,51 @@ function MediaCarousel() {
       .then(response => response.json())
       .then(data => setData(data));
   }, [])
-
-  const pics = [
-    {
-      url: 'https://drive.google.com/uc?export=view&id=1y3XwAuDWyywvEoMTC9b-KD32bMV4qD5c'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=14efnOVzSY9tSBtkW4t-VlkJjWePng0Gt'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=1g2TVr_8p7Y7MexxMmI_3bVXqXd4EZ2Dq'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=1vsiuKXAj00PJLNOnL_rYbPW0HpmHyJFf'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=1b6ooypVex_sKyaRcTbo8iHO1A5mfNYcc'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=1oQHPEw3fQaT4yUd1x2ojzGQG5wOxw2SO'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=16QzCD6BsKrx7XBtcXtc7wHV4sZqpok8L'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=10nrDiZZXdn45E2aHqDjCfRm9WYDBWtyR'
-    },
-    {
-      url: 'https://drive.google.com/uc?export=view&id=1hgRmHvVIuGFGKThctC9xKpPxE6UeIEVr'
-    }
-  ]
+// console.log(data)
+  // const pics = [
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1y3XwAuDWyywvEoMTC9b-KD32bMV4qD5c'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=14efnOVzSY9tSBtkW4t-VlkJjWePng0Gt'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1g2TVr_8p7Y7MexxMmI_3bVXqXd4EZ2Dq'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1vsiuKXAj00PJLNOnL_rYbPW0HpmHyJFf'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1b6ooypVex_sKyaRcTbo8iHO1A5mfNYcc'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1oQHPEw3fQaT4yUd1x2ojzGQG5wOxw2SO'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=16QzCD6BsKrx7XBtcXtc7wHV4sZqpok8L'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=10nrDiZZXdn45E2aHqDjCfRm9WYDBWtyR'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1hgRmHvVIuGFGKThctC9xKpPxE6UeIEVr'
+  //   }
+  // ]
     
   const slides = data.map((item, index) => {
+    const isVideo = item.mediaType === "video"; // Assuming videos have .mp4 extension
     return (
-     <div className="slide">
-       <video src={item.url} autoPlay muted loop />
-    </div>
-   )
+      <div className="slide" key={item.url}>
+        {isVideo ? (
+          <video src={item.url} autoPlay muted loop />
+        ) : (
+          <img src={item.url} alt="Jedi Survivor" className="rounded" />
+        )}
+      </div>
+    );
   });
+  
+  console.log(slides)
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -74,16 +81,15 @@ return (
 
           <div className="absolute group flex justify-between z-1 w-full h-full">
             <div className="h-full -translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 text-white cursor-pointer">
-              <BsChevronCompactLeft onClick={nextSlide} className="h-8 w-8"  />
+              <BsChevronCompactLeft onClick={prevSlide} className="h-8 w-8"  />
             </div>
             <div className="h-full translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 text-white cursor-pointer">
-              <BsChevronCompactRight onClick={prevSlide} className="h-8 w-8" />
+              <BsChevronCompactRight onClick={nextSlide} className="h-8 w-8" />
             </div>
           </div>
 
             <div className="w-full rounded-2xl bg-black">
-              <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls autoPlay>Video not supported</video>
-              {/* {slides[currentIndex]} */}
+              {slides[currentIndex]}
             </div>
         </div>
 
@@ -91,21 +97,26 @@ return (
 
           {/*right arrow*/}
           <div className="rounded-full p-2 bg-black/20 text-white cursor-pointer">
-            <BsChevronCompactLeft onClick={nextSlide} size={30}/>
+            <BsChevronCompactLeft onClick={prevSlide} size={30}/>
           </div>
 
           <div className="flex justify-center gap-2 py-4">
-            {pics.map((pic, slideIndex) => (
-              <div key={pic.url} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
-               <img src={pic.url} alt="Jedi Survivor" className="rounded" />
-              </div>
-            ))}
-            
-          </div>
+            {slides.map((slide, slideIndex) => {
+              return (
+               <div key={slide.key} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
+                {slide.isVideo ? (
+                 <video height="90" width="90" poster={slide.key} src={slide.key} alt="Jedi Survivor" className="rounded"></video>
+                ) : (
+               <img src={slide.key} alt="Jedi Survivor" className="rounded" />
+             )}
+           </div>
+          );
+        })}
+      </div>
 
             {/*left arrow*/}
           <div className="rounded-full p-2 bg-black/20 text-white cursor-pointer">
-            <BsChevronCompactRight onClick={prevSlide} size={30}/>
+            <BsChevronCompactRight onClick={nextSlide} size={30}/>
 
           </div>
         </div>
@@ -122,3 +133,33 @@ return (
   //     {/* <img src={slides.url} /> */}
   //   </div>
   // ))}  //will need this snippet when routes running
+
+
+  // {slides.map((slide, slideIndex) => (
+  //   <div key={slide.url} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
+  //    <img src={slide.url} alt="Jedi Survivor" className="rounded" />
+  //   </div>
+  // ))}
+
+  // const slides = data.map((item, index) => {
+  //   if(item.mediaType === "video"){
+  //   return (
+  //    <div className="slide">
+  //      <video src={item.url} autoPlay muted />
+  //   </div>
+  //  )} else {
+  //   return (
+  //     <div className="slide">
+  //      <img src={item.url} />
+  //   </div>
+  //   )
+  //  }
+  // });
+
+//   <div className="slide">
+//   <video src={item.url} autoPlay muted loop />
+// </div>
+
+  // <video src={slide.url} poster={slide.url} alt="Jedi Survivor" className="rounded" />
+
+    {/* <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls autoPlay>Video not supported</video> */}
