@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+const port = process.env.PORT || 3001; 
+
 const app = express();
 
 dotenv.config();
@@ -48,6 +50,6 @@ app.get("/api/add-ons/:productID", (req, res) => {
     });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listening on port ${process.env.PORT || 3000}`);
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
