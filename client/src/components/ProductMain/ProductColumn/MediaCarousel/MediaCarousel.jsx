@@ -13,37 +13,7 @@ function MediaCarousel() {
       .then(response => response.json())
       .then(data => setData(data));
   }, [])
-// console.log(data)
-  // const pics = [
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1y3XwAuDWyywvEoMTC9b-KD32bMV4qD5c'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=14efnOVzSY9tSBtkW4t-VlkJjWePng0Gt'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1g2TVr_8p7Y7MexxMmI_3bVXqXd4EZ2Dq'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1vsiuKXAj00PJLNOnL_rYbPW0HpmHyJFf'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1b6ooypVex_sKyaRcTbo8iHO1A5mfNYcc'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1oQHPEw3fQaT4yUd1x2ojzGQG5wOxw2SO'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=16QzCD6BsKrx7XBtcXtc7wHV4sZqpok8L'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=10nrDiZZXdn45E2aHqDjCfRm9WYDBWtyR'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1hgRmHvVIuGFGKThctC9xKpPxE6UeIEVr'
-  //   }
-  // ]
-    
+
   const slides = data.map((item, index) => {
     const isVideo = item.mediaType === "video"; // Assuming videos have .mp4 extension
     return (
@@ -163,3 +133,35 @@ return (
   // <video src={slide.url} poster={slide.url} alt="Jedi Survivor" className="rounded" />
 
     {/* <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls autoPlay>Video not supported</video> */}
+
+    // console.log(data)
+  // const pics = [
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1y3XwAuDWyywvEoMTC9b-KD32bMV4qD5c'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=14efnOVzSY9tSBtkW4t-VlkJjWePng0Gt'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1g2TVr_8p7Y7MexxMmI_3bVXqXd4EZ2Dq'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1vsiuKXAj00PJLNOnL_rYbPW0HpmHyJFf'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1b6ooypVex_sKyaRcTbo8iHO1A5mfNYcc'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1oQHPEw3fQaT4yUd1x2ojzGQG5wOxw2SO'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=16QzCD6BsKrx7XBtcXtc7wHV4sZqpok8L'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=10nrDiZZXdn45E2aHqDjCfRm9WYDBWtyR'
+  //   },
+  //   {
+  //     url: 'https://drive.google.com/uc?export=view&id=1hgRmHvVIuGFGKThctC9xKpPxE6UeIEVr'
+  //   }
+  // ]
+    
