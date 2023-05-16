@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
-import {RxDotFilled} from 'react-icons/rx';
-
 
 function MediaCarousel() {
   const [data, setData] = useState([]);
@@ -47,7 +45,7 @@ function MediaCarousel() {
   const slides = data.map((item, index) => {
     return (
      <div className="slide">
-       <video src={item.url} autoPlay muted loop />
+       <video src={item.url} muted loop />
     </div>
    )
   });
@@ -82,7 +80,7 @@ return (
           </div>
 
             <div className="w-full rounded-2xl bg-black">
-              <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls autoPlay>Video not supported</video>
+              <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls muted autoPlay>Video not supported</video>
               {/* {slides[currentIndex]} */}
             </div>
         </div>
