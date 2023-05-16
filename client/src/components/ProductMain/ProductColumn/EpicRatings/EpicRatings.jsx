@@ -1,6 +1,7 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 
 function EpicRatings() {
+  
   return (
     <div className="flex flex-col my-6">
       <h2 className="text-xl">Epic Player Ratings</h2>
