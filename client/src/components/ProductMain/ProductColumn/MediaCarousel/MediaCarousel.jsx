@@ -49,7 +49,7 @@ function MediaCarousel() {
     return (
       <div className="slide" key={item.url}>
         {isVideo ? (
-          <video src={item.url} autoPlay muted loop />
+          <video controls src={item.url} autoPlay muted loop />
         ) : (
           <img src={item.url} alt="Jedi Survivor" className="rounded" />
         )}
