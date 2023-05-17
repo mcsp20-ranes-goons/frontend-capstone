@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
-import {RxDotFilled} from 'react-icons/rx';
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+
 
 
 function MediaCarousel() {
   const [data, setData] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState([0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function MediaCarousel() {
     const isVideo = item.mediaType === "video"; // Assuming videos have .mp4 extension
     return (
       <div className="slide" key={item.img} >
-        {isVideo ? (
+        {isVideo ? ( 
           <video controls src={item.url} autoPlay muted loop />
         ) : (
           <img src={item.url} alt="Jedi Survivor" className="rounded" />
@@ -27,7 +27,7 @@ function MediaCarousel() {
     );
   });
   
-  console.log(slides)
+  console.log(currentIndex)
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -47,23 +47,24 @@ function MediaCarousel() {
           
 return (
       <div>
-        <div className='flex w-full bg-black relative group'>
+        <div className='flex w-full bg-black'>
 
-          <div className="absolute group flex justify-between z-1 w-full h-full">
-            <div className="h-full -translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 text-white cursor-pointer">
+          <div className="flex justify-between w-full h-full z-1 group">
+            <div className="-translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
               <BsChevronCompactLeft onClick={prevSlide} className="h-8 w-8"  />
             </div>
-            <div className="h-full translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 text-white cursor-pointer">
+
+            <div className="w-full rounded-2xl bg-black">
+              {slides[currentIndex]} 
+            </div>
+
+            <div className="translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
               <BsChevronCompactRight onClick={nextSlide} className="h-8 w-8" />
+            </div>
             </div>
           </div>
 
-            <div className="w-full rounded-2xl bg-black">
-              {slides[currentIndex]}
-            </div>
-        </div>
-
-       <div className="flex w-full justify-between items-center">
+         <div className="flex w-full justify-between items-center">
 
           {/*right arrow*/}
           <div className="rounded-full p-2 bg-black/20 text-white cursor-pointer">
@@ -79,10 +80,10 @@ return (
                 ) : (
                <img src={slide.key} alt="Jedi Survivor" className="rounded" />
              )}
-           </div>
-          );
-        })}
-      </div>
+            </div>
+           );
+          })}
+         </div>
 
             {/*left arrow*/}
           <div className="rounded-full p-2 bg-black/20 text-white cursor-pointer">
