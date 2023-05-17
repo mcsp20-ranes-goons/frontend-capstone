@@ -6,6 +6,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 function MediaCarousel() {
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedSlide, setSelectedSlide] = useState(0);
 
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function MediaCarousel() {
     };
 
   const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex)
+    setCurrentIndex(slideIndex);
     }
 
           
@@ -71,14 +72,14 @@ return (
             <BsChevronCompactLeft onClick={prevSlide} size={30}/>
           </div>
 
-          <div className="flex justify-center gap-2 py-4">
+          <div className="flex w-full justify-center gap-2 py-4">
             {slides.map((slide, slideIndex) => {
               return (
-               <div key={slide.key} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
+               <div key={slide.key} onClick={() => goToSlide(slideIndex)} className="w-full cursor-pointer">
                 {slide.isVideo ? (
-                 <video height="90" width="90" poster={slide.img} src={slide.img} alt="Jedi Survivor" className="rounded"></video>
+                 <video poster={slide.img} src={slide.img} alt="Jedi Survivor" className={`w-full rounded opacity-50 hover:opacity-100 ${currentIndex === slideIndex ? "opacity-100 border" : null }`} ></video>
                 ) : (
-               <img src={slide.key} alt="Jedi Survivor" className="rounded" />
+               <img src={slide.key} alt="Jedi Survivor" className={`w-full rounded opacity-50 hover:opacity-100 ${currentIndex === slideIndex ? "opacity-100 border" : null }`} />
              )}
             </div>
            );
@@ -97,72 +98,4 @@ return (
   
   export default MediaCarousel;
 
-  // <div className="flex justify-center gap-2 py-4">
-  // {slides.map((slide, slideIndex) => (
-  //   <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
-  //     <img src="https://cdn2.unrealengine.com/egs-starwarsjedisurvivorstandardedition-respawnentertainment-g1a-07-1920x1080-320afddfd9ab.jpg?h=270&quality=medium&resize=1&w=480" alt="Jedi Survivor" className="rounded"/>
-  //     {/* <img src={slides.url} /> */}
-  //   </div>
-  // ))}  //will need this snippet when routes running
-
-
-  // {slides.map((slide, slideIndex) => (
-  //   <div key={slide.url} onClick={() => goToSlide(slideIndex)} className="cursor-pointer">
-  //    <img src={slide.url} alt="Jedi Survivor" className="rounded" />
-  //   </div>
-  // ))}
-
-  // const slides = data.map((item, index) => {
-  //   if(item.mediaType === "video"){
-  //   return (
-  //    <div className="slide">
-  //      <video src={item.url} autoPlay muted />
-  //   </div>
-  //  )} else {
-  //   return (
-  //     <div className="slide">
-  //      <img src={item.url} />
-  //   </div>
-  //   )
-  //  }
-  // });
-
-//   <div className="slide">
-//   <video src={item.url} autoPlay muted loop />
-// </div>
-
-  // <video src={slide.url} poster={slide.url} alt="Jedi Survivor" className="rounded" />
-
-    {/* <video src='https://drive.google.com/uc?export=view&id=1wSfqdrCyeTC7pY8IasAG3wVJ5JLVWN1t' controls autoPlay>Video not supported</video> */}
-
-    // console.log(data)
-  // const pics = [
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1y3XwAuDWyywvEoMTC9b-KD32bMV4qD5c'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=14efnOVzSY9tSBtkW4t-VlkJjWePng0Gt'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1g2TVr_8p7Y7MexxMmI_3bVXqXd4EZ2Dq'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1vsiuKXAj00PJLNOnL_rYbPW0HpmHyJFf'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1b6ooypVex_sKyaRcTbo8iHO1A5mfNYcc'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1oQHPEw3fQaT4yUd1x2ojzGQG5wOxw2SO'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=16QzCD6BsKrx7XBtcXtc7wHV4sZqpok8L'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=10nrDiZZXdn45E2aHqDjCfRm9WYDBWtyR'
-  //   },
-  //   {
-  //     url: 'https://drive.google.com/uc?export=view&id=1hgRmHvVIuGFGKThctC9xKpPxE6UeIEVr'
-  //   }
-  // ]
-    
+  
