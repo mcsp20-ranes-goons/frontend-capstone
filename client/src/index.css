@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 body {
-    @apply bg-neutral-900 text-white;
+  @apply bg-neutral-900 text-white;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  opacity: 0;
 }
