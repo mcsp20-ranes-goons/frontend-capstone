@@ -13,7 +13,9 @@ function EditionsAddons() {
             />
             <div>
               <div className="flex flex-row">
-                <div className="flex flex-row justify-center items-center py-2 m-3 px-4 bg-neutral-700 rounded-sm">BASE GAME</div>
+                <div className="flex flex-row justify-center items-center py-2 m-3 px-4 bg-neutral-700 rounded-sm">
+                  BASE GAME
+                </div>
                 <div className="flex items-center m-2">
                   <a href="https://store.epicgames.com/en-US/p/star-wars-jedi-survivor">
                     STAR WARS Jedi: Survivor™ Standard Edition
@@ -31,8 +33,12 @@ function EditionsAddons() {
           </div>
           <div className="flex flex-row justify-end items-center p-5 gap-3 bg-neutral-800">
             <div className="text-lg">$69.99</div>
-            <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">ADD TO CART</button>
-            <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">ADD TO WISHLIST</button>
+            <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+              ADD TO CART
+            </button>
+            <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+              ADD TO WISHLIST
+            </button>
           </div>
         </div>
         <div className="flex flex-col my-5">
@@ -44,7 +50,9 @@ function EditionsAddons() {
             />
             <div>
               <div className="flex flex-row">
-                <div className="flex flex-row justify-center items-center py-2 m-3 px-4 bg-neutral-700 rounded-sm">EDITION</div>
+                <div className="flex flex-row justify-center items-center py-2 m-3 px-4 bg-neutral-700 rounded-sm">
+                  EDITION
+                </div>
                 <div className="flex items-center m-2">
                   <a href="https://store.epicgames.com/en-US/p/star-wars-jedi-survivor--deluxe-edition">
                     STAR WARS Jedi: Survivor™ Deluxe Edition
@@ -62,8 +70,12 @@ function EditionsAddons() {
           </div>
           <div className="flex flex-row justify-end items-center p-5 gap-3 bg-neutral-800">
             <div className="text-lg">$89.99</div>
-            <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">ADD TO CART</button>
-            <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">ADD TO WISHLIST</button>
+            <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+              ADD TO CART
+            </button>
+            <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+              ADD TO WISHLIST
+            </button>
           </div>
         </div>
       </div>
@@ -78,7 +90,9 @@ function EditionsAddons() {
             />
             <div>
               <div className="flex flex-row">
-                <div className="flex flex-row justify-center items-center p-2 m-3 px-4 bg-neutral-700 rounded-sm">ADD-ON</div>
+                <div className="flex flex-row justify-center items-center p-2 m-3 px-4 bg-neutral-700 rounded-sm">
+                  ADD-ON
+                </div>
                 <div className="flex items-center m-2">
                   <a href="https://store.epicgames.com/en-US/p/star-wars-jedi-survivor--deluxe-upgrade">
                     STAR WARS Jedi: Survivor™ - Deluxe Upgrade
@@ -86,14 +100,20 @@ function EditionsAddons() {
                 </div>
               </div>
               <div className="flex items-center m-3">
-                <p className="text-neutral-400">Upgrade to unlock exclusive cosmetic items!</p>
+                <p className="text-neutral-400">
+                  Upgrade to unlock exclusive cosmetic items!
+                </p>
               </div>
             </div>
           </div>
           <div className="flex flex-row justify-end items-center p-5 gap-3 bg-neutral-800">
             <div className="text-lg">$20</div>
-            <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">ADD TO CART</button>
-            <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">ADD TO WISHLIST</button>
+            <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+              ADD TO CART
+            </button>
+            <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+              ADD TO WISHLIST
+            </button>
           </div>
         </div>
       </div>

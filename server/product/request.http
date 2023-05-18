@@ -1,0 +1,14 @@
+### test 
+GET http://localhost:3000
+
+### Get all 
+GET http://localhost:3000/api/product
+
+### Starwars
+GET http://localhost:3000/api/product/1
+
+### God of War
+GET http://localhost:3000/api/product/2
+
+### Redfall
+GET http://localhost:3000/api/product/3
