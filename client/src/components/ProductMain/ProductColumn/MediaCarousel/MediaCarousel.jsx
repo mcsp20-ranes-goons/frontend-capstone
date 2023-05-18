@@ -28,7 +28,6 @@ function MediaCarousel() {
     );
   });
   
-  console.log(currentIndex)
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -50,8 +49,8 @@ return (
       <div>
         <div className='flex w-full bg-black'>
 
-          <div className="flex justify-between w-full h-full z-1 group">
-            <div className="-translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
+          <div className="flex group justify-between w-full h-full z-1 ">
+            <div className="-translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-md p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
               <BsChevronCompactLeft onClick={prevSlide} className="h-8 w-8"  />
             </div>
 
@@ -59,7 +58,7 @@ return (
               {slides[currentIndex]} 
             </div>
 
-            <div className="translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
+            <div className="translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-md p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
               <BsChevronCompactRight onClick={nextSlide} className="h-8 w-8" />
             </div>
             </div>
@@ -77,7 +76,7 @@ return (
               return (
                <div key={slide.key} onClick={() => goToSlide(slideIndex)} className="w-full cursor-pointer">
                 {slide.isVideo ? (
-                 <video poster={slide.img} src={slide.img} alt="Jedi Survivor" className={`w-full rounded opacity-50 hover:opacity-100 ${currentIndex === slideIndex ? "opacity-100 border" : null }`} ></video>
+                 <video preload="auto" poster={slide.img} src={slide.img} alt={item.alt} className={`w-full rounded opacity-50 hover:opacity-100 ${currentIndex === slideIndex ? "opacity-100 border" : null }`} ></video>
                 ) : (
                <img src={slide.key} alt="Jedi Survivor" className={`w-full rounded opacity-50 hover:opacity-100 ${currentIndex === slideIndex ? "opacity-100 border" : null }`} />
              )}
@@ -85,7 +84,6 @@ return (
            );
           })}
          </div>
-
             {/*left arrow*/}
           <div className="rounded-full p-2 bg-black/20 text-white cursor-pointer">
             <BsChevronCompactRight onClick={nextSlide} size={30}/>
