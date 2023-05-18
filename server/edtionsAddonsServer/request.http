@@ -1,0 +1,8 @@
+###
+GET http://localhost:3000
+
+### get all editions from star wars
+GET http://localhost:3000/api/editions/1
+
+### get all add-ons from star wars
+GET http://localhost:3000/api/add-ons/1
