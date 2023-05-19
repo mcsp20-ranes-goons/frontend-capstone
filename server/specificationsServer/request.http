@@ -1,0 +1,10 @@
+###
+GET http://localhost:3000/api/specifications_Min/
+
+###
+GET http://localhost:3000/api/specifications_Recommended
+
+###
+GET http://localhost:3000/api/socials
+
+

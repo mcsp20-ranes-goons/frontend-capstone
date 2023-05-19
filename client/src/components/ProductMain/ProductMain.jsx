@@ -1,13 +1,16 @@
 import ProductColumn from "./ProductColumn/ProductColumn";
 import ProductDetails from "./ProductDetails/ProductDetails";
+// import { useEffect, useState } from "react";
 
-function ProductMain() {
-    return (
-      <section className="flex w-[1286px] m-auto">
-          <ProductColumn />
-          <ProductDetails />
+function ProductMain({ product }) {
+  return (
+    <>
+      <section className="flex w-full">
+        <ProductColumn product={product} />
+        <ProductDetails product={product} />
       </section>
-    );
-  }
-  
-  export default ProductMain;
+    </>
+  );
+}
+
+export default ProductMain;

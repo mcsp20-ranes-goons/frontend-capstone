@@ -1,13 +1,25 @@
 import { StarIcon } from "@heroicons/react/24/solid";
+import { useEffect, useState } from "react";
 
-function EpicRatings() {
+function EpicRatings({ id, overall_rating }) {
+  const [epicRatings, setEpicRatings] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/epicratings/${id}`)
+      .then((res) => res.json())
+      .then((data) => setEpicRatings(data))
+      .catch((e) => console.log(e));
+  }, [id]);
+
   return (
     <div className="flex flex-col my-6">
       <h2 className="text-xl">Epic Player Ratings</h2>
-      <h3 className="text-neutral-400">Captured from players in the Epic Games ecosystem.</h3>
+      <h3 className="text-neutral-400">
+        Captured from players in the Epic Games ecosystem.
+      </h3>
 
       <div className="flex justify-center gap-2 items-center mt-4">
-        <p className="text-4xl">4.4</p>
+        <p className="text-4xl">{overall_rating}</p>
         <div className="flex">
           <StarIcon className="h-8 w-8" />
           <StarIcon className="h-8 w-8" />
@@ -17,10 +29,19 @@ function EpicRatings() {
         </div>
       </div>
 
-      <div className="bg-neutral-800 mt-4 w-fit px-8 py-12 flex flex-col items-center rounded">
-        <span className="text-5xl">🦖</span>
-        <p className="text-sm text-neutral-400">This game has</p>
-        <p className="text-2xl font-bold w-32 text-center">Great Boss Battles</p>
+      <div className="flex flex-wrap mt-4 gap-6">
+        {epicRatings.map((rating) => (
+            <div
+              key={rating.id}
+              className="bg-neutral-800 w-[30%] py-12 gap-2 flex flex-col justify-center items-center rounded"
+            >
+              <img src={rating.icon} alt="" />
+              <p className="text-sm text-neutral-400">This game has</p>
+              <p className="text-2xl font-bold w-3/4 text-center">
+                {rating.title}
+              </p>
+            </div>
+          ))}
       </div>
     </div>
   );

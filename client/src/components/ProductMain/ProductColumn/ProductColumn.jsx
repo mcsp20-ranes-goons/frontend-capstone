@@ -8,21 +8,23 @@ import ProductTagline from "./ProductTagline/ProductTagline";
 import Ratings from "./Ratings/Ratings";
 import Specifications from "./Specifications/Specifications";
 
-function ProductColumn() {
-    return (
-      <div className="w-[826px]">
-          <h1>ProductColumn</h1>
-          <MediaCarousel />
-          <ProductTagline />
-          <GenresFeatures />
-          <ProductDescription />
-          <EditionsAddons />
-          <FollowUs />
-          <EpicRatings />
-          <Ratings />
-          <Specifications />
-      </div>
-    );
-  }
-  
-  export default ProductColumn;
+function ProductColumn({ product }) {
+  return (
+    <div className="max-w-4xl w-8/12 mr-16">
+      <MediaCarousel id={product.id} />
+      <ProductTagline tagline={product.Description} />
+      <GenresFeatures id={product.id} />
+      <ProductDescription
+        image={product.description_img}
+        description={product.StoryBoard}
+      />
+      <EditionsAddons id={product.id} />
+      <FollowUs id={product.id} />
+      <EpicRatings id={product.id} overall_rating={product.overall_rating} />
+      <Ratings id={product.id} color={product.color} />
+      <Specifications id={product.id} />
+    </div>
+  );
+}
+
+export default ProductColumn;

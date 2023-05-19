@@ -1,24 +1,38 @@
 import TopNav from "./components/TopNav/TopNav";
 import SecondaryNav from "./components/SecondaryNav/SecondaryNav";
-import ProductTitle from "./components/ProductTitle/ProductTitle";
-import ProductRating from "./components/ProductRating/ProductRating";
-import ProductNav from "./components/ProductNav/ProductNav";
-import ProductMain from "./components/ProductMain/ProductMain";
 import Footer from "./components/Footer/Footer";
-// import { FlagIcon }  from '@heroicons/react/24/solid'
+import { Outlet, Link, useLoaderData } from "react-router-dom";
+
+export async function loader() {
+  const results = await fetch("http://localhost:3000/api/product");
+  const products = await results.json()
+  return { products };
+}
 
 function App() {
-  // useEffect to fetch Product data from API
+  const { products } = useLoaderData();
+  console.log(products)
   return (
     <>
-      {/* <FlagIcon className="h-6 w-6" /> */}
       <TopNav />
-      <main>
+      <main className="flex flex-col w-3/4 justify-center m-auto max-w-screen-xl">
         <SecondaryNav />
-        <ProductTitle />
-        <ProductRating />
-        <ProductNav />
-        <ProductMain />
+          {products.length ? (
+            <ul className="flex gap-4 text-blue-500">
+              {products.map((product) => (
+                <li key={product.id} className="hover:underline hover:text-blue-400">
+                  <Link to={`product/${product.id}`}>
+                    {product.Title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>
+              <i>No products</i>
+            </p>
+          )}
+        <Outlet />
       </main>
 
       <Footer />
