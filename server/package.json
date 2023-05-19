@@ -6,6 +6,11 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "1": "nodemon editionsAddons/editionsAddons.js",
+    "2": "nodemon media/media.js",
+    "3": "product/product.js",
+    "4": "ratings/ratings.js",
+    "5": "specifications/specifications.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

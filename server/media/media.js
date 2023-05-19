@@ -16,7 +16,7 @@ app.use(cookieParser());
 const { Pool } = pg;
 const pool = new Pool({connectionString: process.env.DATABASE_URL});
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -42,5 +42,5 @@ app.get("/api/media/:product_id", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${process.env.PORT || 3000}`);
+  console.log(`Server listening on port ${port}`);
 });

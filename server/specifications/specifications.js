@@ -16,6 +16,8 @@ app.use(cookieParser());
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
+const port = process.env.PORT || 3005;
+
 app.get("/api/specifications_Min/:id", async (req, res) => {
   try {
     let result = await pool.query("SELECT * FROM specifications_Min/:id");
@@ -25,6 +27,6 @@ app.get("/api/specifications_Min/:id", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listening on port ${process.env.PORT || 3000}`);
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });

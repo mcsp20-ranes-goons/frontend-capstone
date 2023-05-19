@@ -16,6 +16,8 @@ app.use(cookieParser());
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
+const port = process.env.PORT || 3004;
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -56,6 +58,6 @@ app.get("/api/ratings/:id", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listening on port ${process.env.PORT || 3000}`);
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
