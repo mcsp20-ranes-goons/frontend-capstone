@@ -47,7 +47,7 @@ function MediaCarousel() {
           
 return (
       <>
-        <div className='flex w-full bg-black'>
+        <div className='flex w-full bg-black mt-8'>
 
           <div className="flex justify-between w-full h-full z-1 group">
             <div className="-translate-x-full text-neutral-900 group-hover:text-white group-hover:translate-x-0 flex items-center rounded-full p-2 transition-all ease-linear duration-300 hover:bg-black/20 hover:bg-gradient-to-r cursor-pointer">
