@@ -1,0 +1,61 @@
+import pg from "pg";
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+
+const app = express();
+
+dotenv.config();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+const { Pool } = pg;
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.get("/api/epicratings", (req, res) => {
+  res.status(404).json({ message: "Route not supported" });
+});
+
+app.get("/api/epicratings/:id", async (req, res) => {
+  try {
+    const results = await pool.query(
+      'SELECT * FROM "epicRatings" WHERE "productId" = $1',
+      [req.params.id]
+    );
+
+    res.json(results.rows);
+  } catch (error) {
+    res.json({ message: error });
+    console.log(error);
+  }
+});
+
+app.get("/api/ratings", (req, res) => {
+  res.status(404).json({ message: "Route not supported" });
+});
+
+app.get("/api/ratings/:id", async (req, res) => {
+  try {
+    const results = await pool.query(
+      'SELECT * FROM "ratings" WHERE "productId" = $1',
+      [req.params.id]
+    );
+
+    res.json(results.rows);
+  } catch (error) {
+    res.json({ message: error });
+    console.log(error);
+  }
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server listening on port ${process.env.PORT || 3000}`);
+});

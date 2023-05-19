@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-
+import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
 
 
 function MediaCarousel() {
