@@ -9,11 +9,9 @@ function Specifications() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await specsMin();
-      console.log(response);
       setSpecsMinState(response);
 
       const response2 = await specsRecm();
-      console.log(response2);
       setSpecsRecmState(response2);
     };
 

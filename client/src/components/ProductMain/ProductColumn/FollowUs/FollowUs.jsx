@@ -8,7 +8,6 @@ function FollowUs() {
   useEffect(() => {
     async function fetchSocials() {
       const response = await getSocials();
-      console.log(response);
       setSocials(response);
     }
 
