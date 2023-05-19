@@ -5,7 +5,7 @@ function ProductRating({ rating, id }) {
   const [epicRatings, setEpicRatings] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/epicratings/${id}`)
+    fetch(`http://localhost:3004/api/epicratings/${id}`)
       .then((res) => res.json())
       .then((data) => setEpicRatings(data))
       .catch((e) => console.log(e));

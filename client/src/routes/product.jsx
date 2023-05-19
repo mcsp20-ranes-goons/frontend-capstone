@@ -6,8 +6,9 @@ import { useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
 
 export async function loader({ params }) {
-  const results = await fetch(`http://localhost:3000/api/product/${params.productId}`);
-  const product = await results.json()
+  const results = await fetch(`http://localhost:3003/api/product/${params.productId}`);
+  const productArray = await results.json()
+  const product = productArray[0];
 
   return { product };
 }

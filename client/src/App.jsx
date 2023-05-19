@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
 
 export async function loader() {
-  const results = await fetch("http://localhost:3000/api/product");
+  const results = await fetch("http://localhost:3003/api/product");
   const products = await results.json()
   return { products };
 }

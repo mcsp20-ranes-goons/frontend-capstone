@@ -64,5 +64,5 @@ app.get("/api/product/:id", async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${process.env.PORT || port}`);
+  console.log(`Server listening on port ${port}`);
 });
