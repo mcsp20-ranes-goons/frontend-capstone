@@ -10,7 +10,7 @@ import Specifications from "./Specifications/Specifications";
 
 function ProductColumn({ product }) {
   return (
-    <div className="max-w-4xl mr-16">
+    <div className="max-w-4xl w-8/12 mr-16">
       <MediaCarousel id={product.id} />
       <ProductTagline tagline={product.Description} />
       <GenresFeatures id={product.id} />
@@ -20,8 +20,8 @@ function ProductColumn({ product }) {
       />
       <EditionsAddons id={product.id} />
       <FollowUs id={product.id} />
-      <EpicRatings id={product.id} />
-      <Ratings id={product.id} />
+      <EpicRatings id={product.id} overall_rating={product.overall_rating} />
+      <Ratings id={product.id} color={product.color} />
       <Specifications id={product.id} />
     </div>
   );

@@ -3,6 +3,7 @@ import ProductRating from "../components/ProductRating/ProductRating";
 import ProductNav from "../components/ProductNav/ProductNav";
 import ProductMain from "../components/ProductMain/ProductMain";
 import { useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
 
 export async function loader({ params }) {
   const results = await fetch(`http://localhost:3000/api/product/${params.productId}`);
@@ -13,6 +14,11 @@ export async function loader({ params }) {
 
 const ProductPage = () => {
   const { product } = useLoaderData()
+
+  useEffect(() => {
+    document.title = `${product.Title} | Download and Buy Today`
+  })
+
   return (
     <>
       <ProductTitle title={product.Title} />

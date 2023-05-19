@@ -1,7 +1,6 @@
 function ProductDescription({ description, image }) {
-  console.log(description)
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full mt-12">
       {image ? <img
         className="rounded pt-14 w-full"
         src={description}

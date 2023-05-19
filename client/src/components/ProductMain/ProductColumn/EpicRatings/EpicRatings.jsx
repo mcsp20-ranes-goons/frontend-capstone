@@ -1,7 +1,7 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 
-function EpicRatings({ id }) {
+function EpicRatings({ id, overall_rating }) {
   const [epicRatings, setEpicRatings] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function EpicRatings({ id }) {
       </h3>
 
       <div className="flex justify-center gap-2 items-center mt-4">
-        <p className="text-4xl">4.4</p>
+        <p className="text-4xl">{overall_rating}</p>
         <div className="flex">
           <StarIcon className="h-8 w-8" />
           <StarIcon className="h-8 w-8" />

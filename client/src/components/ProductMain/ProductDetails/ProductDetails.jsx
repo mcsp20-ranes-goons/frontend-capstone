@@ -7,12 +7,12 @@ function ProductDetails({ product }) {
 
       <a
         href=""
-        className="flex p-2 border border-neutral-600 w-3/4 rounded gap-2 hover:bg-neutral-700 my-2"
+        className="flex p-2 border items-center border-neutral-600 w-3/4 rounded gap-2 hover:bg-neutral-700 my-2"
       >
         <img src={product.esrb_img} alt="ESRB Rating" className="w-12 h-12" />
         <div className="flex flex-col">
-          <p className="font-semibold">{product.ESRB}</p>
-          <p className="text-neutral-400">{product.ESRB_desc}</p>
+          <p className="font-semibold text-sm">{product.ESRB}</p>
+          <p className="text-neutral-400 text-sm">{product.ESRB_desc}</p>
         </div>
       </a>
 

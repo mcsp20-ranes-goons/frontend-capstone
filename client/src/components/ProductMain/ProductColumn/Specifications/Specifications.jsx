@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { specsMin } from "../../../../api/specsMin.js";
-import { specsRecm } from "../../../../api/specsRecm.js";
 function Specifications() {
   const [specsMinState, setSpecsMinState] = useState([]);
   const [specsRecmState, setSpecsRecmState] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await specsMin();
+      const minResults = await fetch(`/specifications_Min`);
       console.log(response);
       setSpecsMinState(response);
 
-      const response2 = await specsRecm();
+      const recResults = await specsRecm();
       console.log(response2);
       setSpecsRecmState(response2);
     };
