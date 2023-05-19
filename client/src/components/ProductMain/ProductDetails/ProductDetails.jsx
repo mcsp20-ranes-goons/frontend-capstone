@@ -1,6 +1,6 @@
 function ProductDetails({ product }) {
   return (
-    <div className="flex flex-col justify-center max-w-sm">
+    <div className="flex flex-col">
       <div className="flex justify-center items-center pb-4">
         <img
           src="https://cdn2.unrealengine.com/egs-starwarsjedisurvivorstandardedition-respawnentertainment-ic1-400x400-9ff568e5738d.png?h=270&quality=medium&resize=1&w=480"

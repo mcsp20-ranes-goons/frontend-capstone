@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <TopNav />
-      <main>
+      <main className="flex flex-col w-3/4 justify-center m-auto">
         <SecondaryNav />
           {products.length ? (
             <ul className="flex gap-4 text-blue-500">
