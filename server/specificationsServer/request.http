@@ -7,10 +7,4 @@ GET http://localhost:3000/api/specifications_Recommended
 ###
 GET http://localhost:3000/api/socials
 
-###
-GET http://localhost:3000/api/genres
-
-###
-GET http://localhost:3000/api/features/
-
 
