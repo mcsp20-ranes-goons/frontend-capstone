@@ -10,11 +10,11 @@ import Specifications from "./Specifications/Specifications";
 
 function ProductColumn({ product }) {
   return (
-    <div className="mr-16">
+    <div className="max-w-4xl mr-16">
       <MediaCarousel />
-      <ProductTagline description={product.Description} />
+      <ProductTagline tagline={product.Description} />
       <GenresFeatures />
-      <ProductDescription />
+      <ProductDescription image={product.description_img} description={product.StoryBoard} />
       <EditionsAddons />
       <FollowUs />
       <EpicRatings />

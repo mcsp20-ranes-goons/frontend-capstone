@@ -29,7 +29,7 @@ app.get("/api/product/:id", async (req, res) => {
   let id = req.params.id;
   try {
     let result = await pool.query(`SELECT * FROM product WHERE id = $1`, [id]);
-    res.json(result.rows[0]);
+    res.json(result.rows);
   } catch (err) {
     res.status(500).json({ message: `Something went wrong: ${err}` });
   }

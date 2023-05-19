@@ -9,8 +9,8 @@ export async function loader({ params }) {
   const productArray = await results.json()
 
   // NOTE: single product comes back as an array with 1 object. grabbing that object.
-  const product = productArray[0]
-
+  const product = productArray
+  console.log(product)
   return { product };
 }
 

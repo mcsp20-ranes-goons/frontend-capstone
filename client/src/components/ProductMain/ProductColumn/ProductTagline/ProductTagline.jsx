@@ -1,7 +1,7 @@
-function ProductTagline({ description }) {
+function ProductTagline({ tagline }) {
   return (
     <div className="flex flex-row w-full pt-10">
-      <div className="flex items-center">{description}</div>
+      <div className="flex items-center">{tagline}</div>
     </div>
   );
 }
