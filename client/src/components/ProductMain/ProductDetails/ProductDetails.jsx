@@ -1,4 +1,4 @@
-function ProductDetails({ data }) {
+function ProductDetails({ product }) {
   return (
     <div className="flex flex-col justify-center max-w-sm">
       <div className="flex justify-center items-center pb-4">
@@ -19,8 +19,8 @@ function ProductDetails({ data }) {
           className="w-12 h-12"
         />
         <div className="flex flex-col">
-          <p className="font-semibold">{data.ESRB}</p>
-          <p className="text-neutral-400">{data.ESRB_desc}</p>
+          <p className="font-semibold">{product.ESRB}</p>
+          <p className="text-neutral-400">{product.ESRB_desc}</p>
         </div>
       </a>
 
@@ -28,7 +28,7 @@ function ProductDetails({ data }) {
         BASE GAME
       </p>
 
-      <p>${data.Price}</p>
+      <p>${product.Price}</p>
 
       <div className="flex flex-col gap-2">
         <button className="bg-blue-500 rounded py-3 transition-all ease-linear hover:bg-blue-400">
@@ -43,20 +43,20 @@ function ProductDetails({ data }) {
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Refund Type</p>
-        <p>{data.RefundType}</p>
+        <p>{product.RefundType}</p>
         {/* add question mark icon */}
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Developer</p>
-        <p>{data.Developer}</p>
+        <p>{product.Developer}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Publisher</p>
-        <p>{data.Publisher}</p>
+        <p>{product.Publisher}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Release Date</p>
-        <p>{data.Publisher}</p>
+        <p>{product.Publisher}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Platform</p>

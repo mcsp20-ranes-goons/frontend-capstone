@@ -5,7 +5,7 @@ import cors from "cors";
 
 const app = express();
 dotenv.config();
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors());
 
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -29,7 +29,7 @@ app.get("/api/product/:id", async (req, res) => {
   let id = req.params.id;
   try {
     let result = await pool.query(`SELECT * FROM product WHERE id = $1`, [id]);
-    res.json(result.rows);
+    res.json(result.rows[0]);
   } catch (err) {
     res.status(500).json({ message: `Something went wrong: ${err}` });
   }

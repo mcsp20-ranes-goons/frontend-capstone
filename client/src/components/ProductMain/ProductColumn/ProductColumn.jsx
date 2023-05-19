@@ -8,12 +8,11 @@ import ProductTagline from "./ProductTagline/ProductTagline";
 import Ratings from "./Ratings/Ratings";
 import Specifications from "./Specifications/Specifications";
 
-function ProductColumn() {
+function ProductColumn({ product }) {
   return (
     <div className="w-[826px]">
-      <h1>ProductColumn</h1>
       <MediaCarousel />
-      <ProductTagline />
+      <ProductTagline description={product.Description} />
       <GenresFeatures />
       <ProductDescription />
       <EditionsAddons />

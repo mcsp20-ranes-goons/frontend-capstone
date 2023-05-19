@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App, { loader as appLoader } from "./App.jsx";
 import ErrorPage from "./errorPage";
-import ProductPage from "./routes/product.jsx";
+import ProductPage, { loader as productLoader } from "./routes/product.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -16,6 +16,7 @@ const router = createBrowserRouter([
       {
         path: "product/:productId",
         element: <ProductPage />,
+        loader: productLoader,
       },
     ],
   },

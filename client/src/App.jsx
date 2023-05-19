@@ -21,7 +21,7 @@ function App() {
             <ul className="flex gap-4 text-blue-500">
               {products.map((product) => (
                 <li key={product.id} className="hover:underline hover:text-blue-400">
-                  <Link to={`products/${product.id}`}>
+                  <Link to={`product/${product.id}`}>
                     {product.Title}
                   </Link>
                 </li>
