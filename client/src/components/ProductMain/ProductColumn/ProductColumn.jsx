@@ -10,7 +10,7 @@ import Specifications from "./Specifications/Specifications";
 
 function ProductColumn({ product }) {
   return (
-    <div className="w-[826px]">
+    <div className="mr-16">
       <MediaCarousel />
       <ProductTagline description={product.Description} />
       <GenresFeatures />

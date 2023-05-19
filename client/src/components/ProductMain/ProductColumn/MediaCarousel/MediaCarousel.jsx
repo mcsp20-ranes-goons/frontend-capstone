@@ -46,7 +46,7 @@ function MediaCarousel() {
 
           
 return (
-      <div>
+      <>
         <div className='flex w-full bg-black'>
 
           <div className="flex justify-between w-full h-full z-1 group">
@@ -91,7 +91,7 @@ return (
 
           </div>
         </div>
-      </div>
+      </>
     );
   }
   
