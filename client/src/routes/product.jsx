@@ -7,7 +7,8 @@ import { useEffect } from "react";
 
 export async function loader({ params }) {
   const results = await fetch(`http://localhost:3003/api/product/${params.productId}`);
-  const product = await results.json()
+  const productArray = await results.json()
+  const product = productArray[0];
 
   return { product };
 }
