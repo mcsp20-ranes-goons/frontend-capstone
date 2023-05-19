@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { specsMin } from "../../../../api/specsMin.js";
-import { specsRecm } from "../../../../api/specsRecm.js";
 function Specifications() {
   const [specsMinState, setSpecsMinState] = useState([]);
   const [specsRecmState, setSpecsRecmState] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await specsMin();
+      const minResults = await fetch(`/specifications_Min`);
       console.log(response);
       setSpecsMinState(response);
 
-      const response2 = await specsRecm();
+      const recResults = await specsRecm();
       console.log(response2);
       setSpecsRecmState(response2);
     };
@@ -20,7 +18,7 @@ function Specifications() {
     fetchData();
   }, []);
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 mb-16">
       <h1 className="text-xl">Specifications</h1>
       <div className="flex flex-col bg-neutral-800 py-9 px-16">
         <div className="flex">

@@ -5,7 +5,7 @@ import cors from "cors";
 
 const app = express();
 dotenv.config();
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors());
 
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });

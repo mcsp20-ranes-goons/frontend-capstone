@@ -1,23 +1,13 @@
 import ProductColumn from "./ProductColumn/ProductColumn";
 import ProductDetails from "./ProductDetails/ProductDetails";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-function ProductMain() {
-  // pass that data into proudct col and product details
-  const [data, setData] = useState([]);
-  // const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3003/api/product")
-      .then((response) => response.json())
-      .then((data) => setData(data[0]));
-  }, []);
-
+function ProductMain({ product }) {
   return (
     <>
-      <section>
-        <ProductColumn data={data} />
-        <ProductDetails data={data} />
+      <section className="flex w-full">
+        <ProductColumn product={product} />
+        <ProductDetails product={product} />
       </section>
     </>
   );

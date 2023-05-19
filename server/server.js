@@ -32,6 +32,14 @@ app.get("/api/product", async (req, res) => {
     res.status(500).json({ message: `Something went wrong: ${err}` });
   }
 });
+app.get("/api/product/:productId", async (req, res) => {
+  try {
+    let result = await pool.query("SELECT * FROM product WHERE id = $1", [req.params.productId]);
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ message: `Something went wrong: ${err}` });
+  }
+});
 
 app.get("/api/media", async (req, res) => {
   try {

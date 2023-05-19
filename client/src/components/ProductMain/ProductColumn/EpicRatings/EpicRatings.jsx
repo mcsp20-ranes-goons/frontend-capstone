@@ -1,15 +1,15 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 
-function EpicRatings() {
+function EpicRatings({ id, overall_rating }) {
   const [epicRatings, setEpicRatings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/epicratings/1")
+    fetch(`http://localhost:3001/api/epicratings/${id}`)
       .then((res) => res.json())
       .then((data) => setEpicRatings(data))
       .catch((e) => console.log(e));
-  }, []);
+  }, [id]);
 
   return (
     <div className="flex flex-col my-6">
@@ -19,7 +19,7 @@ function EpicRatings() {
       </h3>
 
       <div className="flex justify-center gap-2 items-center mt-4">
-        <p className="text-4xl">4.4</p>
+        <p className="text-4xl">{overall_rating}</p>
         <div className="flex">
           <StarIcon className="h-8 w-8" />
           <StarIcon className="h-8 w-8" />
