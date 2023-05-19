@@ -6,12 +6,12 @@ function Ratings({ id, color }) {
   const [critics, setCritics] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/ratings/${id}`)
+    fetch(`http://localhost:3004/api/ratings/${id}`)
       .then((res) => res.json())
       .then((data) => setRatings(data))
       .catch((e) => console.log(e));
 
-    fetch(`http://localhost:3001/api/critics/${id}`)
+    fetch(`http://localhost:3004/api/critics/${id}`)
       .then((res) => res.json())
       .then((data) => setCritics(data))
       .catch((e) => console.log(e));

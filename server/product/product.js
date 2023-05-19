@@ -10,7 +10,7 @@ app.use(cors());
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -35,6 +35,6 @@ app.get("/api/product/:id", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening to port: ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server listening to port: ${port}`);
 });

@@ -42,5 +42,5 @@ app.get("/api/media/:product_id", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${process.env.PORT || port}`);
+  console.log(`Server listening on port ${port}`);
 });
