@@ -13,7 +13,7 @@ function ProductMain({ product }) {
 
   return (
     <>
-      <section>
+      <section className="flex">
         <ProductColumn product={product} />
         <ProductDetails product={product} />
       </section>

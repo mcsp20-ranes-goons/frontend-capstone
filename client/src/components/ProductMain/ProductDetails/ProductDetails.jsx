@@ -56,7 +56,7 @@ function ProductDetails({ product }) {
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Release Date</p>
-        <p>{product.Publisher}</p>
+        <p>{product.ReleaseDate}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Platform</p>
