@@ -1,4 +1,26 @@
-function GenresFeatures() {
+import React, { useEffect, useState } from "react";
+import { features } from "../../../../api/features";
+import { genres } from "../../../../api/genres";
+
+function Genres() {
+  const [genresState, setgenresState] = useState([]);
+  const [featuresState, setfeaturesState] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await genres();
+      console.log(response);
+      setgenresState(response);
+    };
+    const fetchData2 = async () => {
+      const response = await features();
+      console.log(response);
+      setfeaturesState(response);
+    };
+    fetchData();
+    fetchData2();
+  }, []);
+
   return (
     <div>
       <div className="flex flex-row pt-10">
@@ -29,6 +51,25 @@ function GenresFeatures() {
       </div>
     </div>
   );
+  {
+    genresState &&
+      genresState.length > 0 &&
+      genresState.map((item) => {
+        return (
+          <>
+            {getEntries(item).map(([key, value]) => {
+              return (
+                <div key={item.id + key} className="flex flex-col">
+                  <span className="text-neutral-400">
+                    {capitalizeFirstLetter(key)}
+                  </span>
+                  <span>{value}</span>
+                </div>
+              );
+            })}
+          </>
+        );
+      });
+  }
 }
-
-export default GenresFeatures;
+export default Genres;
