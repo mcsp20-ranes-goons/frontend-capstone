@@ -22,6 +22,7 @@ function SecondaryNav() {
   const selectedLabel = options.find((item) => item.label === value);
 
   return (
+   <div className="navbarContainer sticky top-0 bg-neutral-900">
     <div className="relative flex justify-between items-center my-6">
       <div className="flex gap-4 items-center">
         <div className="flex items-center">
@@ -72,6 +73,7 @@ function SecondaryNav() {
         </div> */}
       </div>
     </div>
+   </div> 
   );
 }
 
