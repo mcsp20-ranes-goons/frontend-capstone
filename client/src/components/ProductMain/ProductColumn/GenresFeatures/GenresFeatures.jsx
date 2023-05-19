@@ -22,8 +22,8 @@ function Genres() {
   }, []);
 
   return (
-    <div>
-      <div className="flex flex-row pt-10">
+    <>
+      <div className="flex flex-row w-full pt-10">
         <div className="border border-gray-700"></div>
         <div className="flex flex-col justify-left ml-5 text-gray-300">
           Genres
@@ -49,7 +49,7 @@ function Genres() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
   {
     genresState &&

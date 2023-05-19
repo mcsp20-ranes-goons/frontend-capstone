@@ -56,6 +56,24 @@ app.get("/api/ratings/:id", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listening on port ${process.env.PORT || 3000}`);
+app.get("/api/critics", (req, res) => {
+  res.status(404).json({ message: "Route not supported" });
+});
+
+app.get("/api/critics/:id", async (req, res) => {
+  try {
+    const results = await pool.query(
+      'SELECT * FROM critics WHERE product_id = $1',
+      [req.params.id]
+    );
+
+    res.json(results.rows);
+  } catch (error) {
+    res.json({ message: error });
+    console.log(error);
+  }
+});
+
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Server listening on port ${process.env.PORT || 3001}`);
 });
