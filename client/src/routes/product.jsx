@@ -6,11 +6,8 @@ import { useLoaderData } from "react-router-dom";
 
 export async function loader({ params }) {
   const results = await fetch(`http://localhost:3000/api/product/${params.productId}`);
-  const productArray = await results.json()
+  const product = await results.json()
 
-  // NOTE: single product comes back as an array with 1 object. grabbing that object.
-  const product = productArray
-  console.log(product)
   return { product };
 }
 
@@ -19,7 +16,7 @@ const ProductPage = () => {
   return (
     <>
       <ProductTitle title={product.Title} />
-      <ProductRating product={product} />
+      <ProductRating rating={product.overall_rating} id={product.id} />
       <ProductNav achievements={product.achievements} addOns={product.add_ons} />
       <ProductMain product={product} />
     </>

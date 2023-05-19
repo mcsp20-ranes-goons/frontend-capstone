@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
-function Ratings() {
+function Ratings({ id }) {
   const [ratings, setRatings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/ratings/1")
+    fetch(`http://localhost:3001/api/ratings/${id}`)
       .then((res) => res.json())
       .then((data) => setRatings(data))
       .catch((e) => console.log(e));
-  }, []);
+  }, [id]);
 
   return (
     <div>

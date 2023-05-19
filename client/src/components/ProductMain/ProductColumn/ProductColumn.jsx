@@ -11,15 +11,18 @@ import Specifications from "./Specifications/Specifications";
 function ProductColumn({ product }) {
   return (
     <div className="max-w-4xl mr-16">
-      <MediaCarousel />
+      <MediaCarousel id={product.id} />
       <ProductTagline tagline={product.Description} />
-      <GenresFeatures />
-      <ProductDescription image={product.description_img} description={product.StoryBoard} />
-      <EditionsAddons />
-      <FollowUs />
-      <EpicRatings />
-      <Ratings />
-      <Specifications />
+      <GenresFeatures id={product.id} />
+      <ProductDescription
+        image={product.description_img}
+        description={product.StoryBoard}
+      />
+      <EditionsAddons id={product.id} />
+      <FollowUs id={product.id} />
+      <EpicRatings id={product.id} />
+      <Ratings id={product.id} />
+      <Specifications id={product.id} />
     </div>
   );
 }
