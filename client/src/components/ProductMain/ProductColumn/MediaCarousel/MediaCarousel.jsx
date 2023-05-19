@@ -9,7 +9,7 @@ function MediaCarousel() {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/media/1')
+    fetch('http://localhost:3002/api/media/1')
       .then(response => response.json())
       .then(data => setData(data));
   }, [])

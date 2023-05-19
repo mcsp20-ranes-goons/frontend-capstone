@@ -5,7 +5,7 @@ function Ratings() {
   const [ratings, setRatings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/ratings/1")
+    fetch("http://localhost:3004/api/ratings/1")
       .then((res) => res.json())
       .then((data) => setRatings(data))
       .catch((e) => console.log(e));

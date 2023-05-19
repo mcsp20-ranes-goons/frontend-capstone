@@ -8,7 +8,7 @@ function ProductMain() {
   // const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/product")
+    fetch("http://localhost:3003/api/product")
       .then((response) => response.json())
       .then((data) => setData(data[0]));
   }, []);
