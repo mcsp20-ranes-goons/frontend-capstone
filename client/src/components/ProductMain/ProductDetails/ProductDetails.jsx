@@ -1,7 +1,6 @@
-function ProductDetails() {
+function ProductDetails({ data }) {
   return (
     <div className="flex flex-col justify-center max-w-sm">
-      
       <div className="flex justify-center items-center pb-4">
         <img
           src="https://cdn2.unrealengine.com/egs-starwarsjedisurvivorstandardedition-respawnentertainment-ic1-400x400-9ff568e5738d.png?h=270&quality=medium&resize=1&w=480"
@@ -20,8 +19,8 @@ function ProductDetails() {
           className="w-12 h-12"
         />
         <div className="flex flex-col">
-          <p className="font-semibold">Teen</p>
-          <p className="text-neutral-400">Violence, Mild Language</p>
+          <p className="font-semibold">{data.ESRB}</p>
+          <p className="text-neutral-400">{data.ESRB_desc}</p>
         </div>
       </a>
 
@@ -29,7 +28,7 @@ function ProductDetails() {
         BASE GAME
       </p>
 
-      <p>$69.99</p>
+      <p>${data.Price}</p>
 
       <div className="flex flex-col gap-2">
         <button className="bg-blue-500 rounded py-3 transition-all ease-linear hover:bg-blue-400">
@@ -44,26 +43,24 @@ function ProductDetails() {
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Refund Type</p>
-        <p>Self-Refundable</p>
+        <p>{data.RefundType}</p>
         {/* add question mark icon */}
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Developer</p>
-        <p>Respawn Entertainment</p>
+        <p>{data.Developer}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
-        <p className="text-neutral-400">Developer</p>
-        <p>Respawn Entertainment</p>
+        <p className="text-neutral-400">Publisher</p>
+        <p>{data.Publisher}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Release Date</p>
-        <p>04/27/23</p>
+        <p>{data.Publisher}</p>
       </div>
       <div className="flex justify-between border-b py-1 border-neutral-700">
         <p className="text-neutral-400">Platform</p>
-        <div>
-          {/* add platform icons */}
-        </div>
+        <div>{/* add platform icons */}</div>
       </div>
 
       <a href="#" className="flex gap-1 py-2 underline hover:no-underline">
@@ -81,7 +78,6 @@ function ProductDetails() {
           REPORT
         </button>
       </div>
-
     </div>
   );
 }
