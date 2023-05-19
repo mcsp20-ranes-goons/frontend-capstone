@@ -19,15 +19,16 @@ function SecondaryNav() {
     console.log('search', searchTerm);
   };
 
+  const selectedLabel = options.find((item) => item.label === value);
+
   return (
-    <div className="flex justify-between items-center my-6">
+    <div className="relative flex justify-between items-center my-6">
       <div className="flex gap-4 items-center">
         <div className="flex items-center">
           <span className="bg-neutral-800 flex items-center justify-center p-3 rounded-l-3xl">
             <MagnifyingGlassIcon className="h-4 w-4 text-neutral-400" />
           </span>
-          <div className="search-container">
-            <div className="search-inner">
+          <div className="search-container relative">
               <input
                 value={value}
                 onChange={onChange}
@@ -35,7 +36,8 @@ function SecondaryNav() {
                 list="options"
                 className="input-with-hint bg-neutral-800 rounded-r-3xl py-2 pr-4 placeholder:text-sm"
               />
-              <div className="dropdown">
+              {selectedLabel ? null :value && (
+              <div className="dropdown absolute bg-neutral-800 mt-2 py-2 w-full" style={{ width: 350 }}>
                 {options
                   .filter(item => {
                     const searchTerm = value.toLowerCase();
@@ -44,19 +46,18 @@ function SecondaryNav() {
                   })
                   .map((result) => (
                     <div key={result.id} onClick={() => {onSearch(value); onSearch(result.label);}}>
-                    <div className="flex justify-between items-center  bg-neutral-800">
+                    <div className="flex justify-between items-center  bg-neutral-800 text-center">
                       <img
                         src={result.img}
                         alt={result.label}
                         className="rounded w-8 h-8" // Adjust the width and height classes as desired
                       />
-                      <span>{result.label}</span>
+                      <span className="flex-grow">{result.label}</span>
                     </div>
                   </div>
                   ))}
-              </div>
             </div>
-            
+            )}
           </div>
          
           <div className="flex pl-8 gap-4 text-neutral-400">
