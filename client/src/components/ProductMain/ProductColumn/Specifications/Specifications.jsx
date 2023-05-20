@@ -7,13 +7,13 @@ function Specifications({ id }) {
   useEffect(() => {
     const fetchData = async () => {
       const minResults = await fetch(
-        `http://localhost:3004/api/specs_min/${id}`
+        `http://localhost:3005/api/specs_min/${id}`
       );
       const minSpec = await minResults.json();
       setMinSpec(minSpec[0]);
 
       const recResults = await fetch(
-        `http://localhost:3004/api/specs_rec/${id}`
+        `http://localhost:3005/api/specs_rec/${id}`
       );
       const recSpec = await recResults.json();
       setRecSpec(recSpec[0]);
@@ -23,7 +23,7 @@ function Specifications({ id }) {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-4 mb-16">
+    <div className="flex flex-col gap-4 mt-4 mb-16">
       <h1 className="text-xl">Specifications</h1>
       <div className="flex flex-col bg-neutral-800 py-9 px-16">
         <div className="flex">

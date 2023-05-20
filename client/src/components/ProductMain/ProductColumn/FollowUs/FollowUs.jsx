@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { getSocials } from "../../../../api/socials";
-
-function FollowUs() {
+function FollowUs({ id }) {
   const [socials, setSocials] = useState([]);
 
   useEffect(() => {
-    async function fetchSocials() {
-      const response = await getSocials();
-      console.log(response);
-      setSocials(response);
-    }
+    fetch(`http://localhost:3007/api/socials/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSocials(data));
+  }, [id]);
 
-    fetchSocials();
-  }, []);
   return (
     <div>
       <h1 className="text-xl mb-5">FollowUs</h1>
