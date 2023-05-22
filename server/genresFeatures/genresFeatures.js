@@ -16,16 +16,28 @@ app.use(cookieParser());
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-const port = process.env.PORT || 3007;
+const port = process.env.PORT || 3006;
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.get("/api/socials/:product_id", async (req, res) => {
+app.get("/api/genres/:product_id", async (req, res) => {
   try {
     let result = await pool.query(
-      `SELECT * FROM socials WHERE "product_Id" = $1`,
+      `SELECT * FROM genres WHERE product_id = $1`,
+      [req.params.product_id]
+    );
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ message: `Something went wrong: ${err}` });
+  }
+});
+
+app.get("/api/features/:product_id", async (req, res) => {
+  try {
+    let result = await pool.query(
+      `SELECT * FROM features WHERE product_id = $1`,
       [req.params.product_id]
     );
     res.json(result.rows);

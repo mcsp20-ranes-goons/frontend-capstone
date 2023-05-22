@@ -4,7 +4,7 @@ function Achievements({ id, total_achievements }) {
   const [achievements, setAchievements] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3005/api/achievements/${id}`)
+    fetch(`http://localhost:3008/api/achievements/${id}`)
       .then((result) => {
         if (result.status === 404) {
           return [];
@@ -13,7 +13,7 @@ function Achievements({ id, total_achievements }) {
         }
       })
       .then((data) => setAchievements(data));
-  }, []);
+  }, [id]);
 
   const display = (achievement) => {
     let trophyColor;
@@ -76,7 +76,10 @@ function Achievements({ id, total_achievements }) {
       <div className="flex justify-between pb-5">
         {achievements.map((achievement) => display(achievement))}
       </div>
-      <a href="https://store.epicgames.com/en-US/achievements/redfall" className="bg-neutral-800 rounded text-xs text-center py-4 transition-all ease-linear hover:bg-neutral-700 hover:text-neutral-300">
+      <a
+        href="https://store.epicgames.com/en-US/achievements/redfall"
+        className="bg-neutral-800 rounded text-xs text-center py-4 transition-all ease-linear hover:bg-neutral-700 hover:text-neutral-300"
+      >
         SEE ALL {total_achievements} ACHIEVEMENTS
       </a>
     </div>

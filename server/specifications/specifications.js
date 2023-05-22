@@ -18,9 +18,18 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 const port = process.env.PORT || 3005;
 
-app.get("/api/specifications_Min/:id", async (req, res) => {
+app.get("/api/specs_min/:id", async (req, res) => {
   try {
-    let result = await pool.query("SELECT * FROM specifications_Min/:id");
+    let result = await pool.query('SELECT * FROM specs_min WHERE "product_Id" = $1', [req.params.id]);
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ message: `Something went wrong: ${err}` });
+  }
+});
+
+app.get("/api/specs_rec/:id", async (req, res) => {
+  try {
+    let result = await pool.query('SELECT * FROM specs_rec WHERE "product_Id" = $1', [req.params.id]);
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ message: `Something went wrong: ${err}` });

@@ -16,11 +16,11 @@ function ProductDetails({ product }) {
         </div>
       </a>
 
-      <p className="bg-neutral-700 w-fit p-1 rounded text-sm text-neutral-300">
+      <p className="bg-neutral-700 w-fit p-1 my-1 rounded text-sm text-neutral-300">
         BASE GAME
       </p>
 
-      <p>${product.Price}</p>
+      <p className="mt-1 mb-2">${product.Price}</p>
 
       <div className="flex flex-col gap-2">
         <button

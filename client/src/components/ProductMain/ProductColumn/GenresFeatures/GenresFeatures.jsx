@@ -1,75 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { features } from "../../../../api/features";
-import { genres } from "../../../../api/genres";
+import { useEffect, useState } from "react";
 
-function Genres() {
-  const [genresState, setgenresState] = useState([]);
-  const [featuresState, setfeaturesState] = useState([]);
+function Genres({ id }) {
+  const [genres, setGenres] = useState([]);
+  const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await genres();
-      console.log(response);
-      setgenresState(response);
-    };
-    const fetchData2 = async () => {
-      const response = await features();
-      console.log(response);
-      setfeaturesState(response);
-    };
-    fetchData();
-    fetchData2();
-  }, []);
+    fetch(`http://localhost:3006/api/genres/${id}`)
+      .then((res) => res.json())
+      .then((data) => setGenres(data));
+    fetch(`http://localhost:3006/api/features/${id}`)
+      .then((res) => res.json())
+      .then((data) => setFeatures(data));
+  }, [id]);
 
   return (
     <>
-      <div className="flex flex-row w-full pt-10">
-        <div className="border border-gray-700"></div>
-        <div className="flex flex-col justify-left ml-5 text-gray-300">
-          Genres
-          <div className="flex flex-row justify-left w-[400px] h-[35]">
-            <a className="underline text-white" href="#">
-              Action
-            </a>
-            <span>,&nbsp;</span>
-            <a className="underline text-white" href="#">
-              Adventure
-            </a>
+      <div className="flex justify-between pt-8">
+        <div className="flex flex-col w-1/2 border-l pl-4 border-neutral-700">
+          <p className="text-neutral-400">Genres</p>
+          <div className="flex gap-1">
+            {genres.map((genre, index) => (
+              <p key={genre.id} className="underline">
+                {genre.name}
+                {index == genres.length - 1 ? null : ","}
+              </p>
+            ))}
           </div>
         </div>
-        <div className="border border-gray-700 items-center h-[20]"></div>
-
-        <div className="border border-gray-700"></div>
-        <div className="flex flex-col justify-left ml-5 text-gray-300">
-          Features
-          <div className="flex flex-row justify-left w-[400px] h-[35]">
-            <a className="underline text-white" href="#">
-              Single Player
-            </a>
+        <div className="flex flex-col w-1/2 border-l pl-4 border-neutral-700">
+          <p className="text-neutral-400">Features</p>
+          <div className="flex gap-1">
+            {features.map((feature, index) => (
+              <p key={feature.id} className="underline">
+                {feature.name}
+                {index == features.length - 1 ? null : ", "}
+              </p>
+            ))}
           </div>
         </div>
       </div>
     </>
   );
-  {
-    genresState &&
-      genresState.length > 0 &&
-      genresState.map((item) => {
-        return (
-          <>
-            {getEntries(item).map(([key, value]) => {
-              return (
-                <div key={item.id + key} className="flex flex-col">
-                  <span className="text-neutral-400">
-                    {capitalizeFirstLetter(key)}
-                  </span>
-                  <span>{value}</span>
-                </div>
-              );
-            })}
-          </>
-        );
-      });
-  }
 }
 export default Genres;

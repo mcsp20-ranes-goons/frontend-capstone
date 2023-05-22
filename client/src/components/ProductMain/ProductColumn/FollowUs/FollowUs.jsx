@@ -1,29 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import SocialIcon from "./SocialIcon";
 
-import { getSocials } from "../../../../api/socials";
-
-function FollowUs() {
+function FollowUs({ id }) {
   const [socials, setSocials] = useState([]);
 
   useEffect(() => {
-    async function fetchSocials() {
-      const response = await getSocials();
-      setSocials(response);
-    }
+    fetch(`http://localhost:3007/api/socials/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSocials(data));
+  }, [id]);
 
-    fetchSocials();
-  }, []);
   return (
     <div>
-      <h1 className="text-xl mb-5">FollowUs</h1>
+      <h1 className="text-xl mb-5">Follow Us</h1>
       <div className="flex justify-center gap-4 py-8 mb-5 bg-neutral-800">
-        {/*<div>facebook</div>
-        <div>playstation</div>
-        <div>twitter</div>
-        <div>youtube</div>
-      </div>*/}
 
-        <ul className="flex align-middle gap-4 list-none w-full overflow-x-scroll scrollbar-hide hide-scrollbar mx-3">
+        <ul className="flex justify-center gap-8  mx-3">
           {socials &&
             socials.length > 0 &&
             socials.map((social) => {
@@ -35,7 +27,7 @@ function FollowUs() {
                     href={social.url}
                     className="hover:text-blue-500 transition duration-400"
                   >
-                    {social.name}
+                    <SocialIcon name={social.name} />
                   </a>
                 </li>
               );
