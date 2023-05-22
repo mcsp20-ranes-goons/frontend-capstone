@@ -7,6 +7,7 @@ import ProductDescription from "./ProductDescription/ProductDescription";
 import ProductTagline from "./ProductTagline/ProductTagline";
 import Ratings from "./Ratings/Ratings";
 import Specifications from "./Specifications/Specifications";
+import Achievements from "./Achievements/Achievements";
 
 function ProductColumn({ product }) {
   return (
@@ -18,6 +19,7 @@ function ProductColumn({ product }) {
         image={product.description_img}
         description={product.StoryBoard}
       />
+      <Achievements id={product.id} total_achievements={product.total_achievements}/>
       <EditionsAddons id={product.id} />
       <FollowUs id={product.id} />
       <EpicRatings id={product.id} overall_rating={product.overall_rating} />
