@@ -108,7 +108,7 @@ function Specifications({ id }) {
             the EA User Agreement (terms.ea.com), and installation of the EA app
             (ea.com/ea-app) are required to play. EA’s Privacy and Cookie Policy
             (privacy.ea.com) applies to your use of EA’s Services. You consent
-            to any personal data collected through your use of EA's services
+            to any personal data collected through your use of EA&rsquo;s services
             being transferred to the United States, as further explained in the
             Privacy & Cookie Policy. EA online activation is required. You must
             link your EA Account to your Epic Games account to play. EA will
