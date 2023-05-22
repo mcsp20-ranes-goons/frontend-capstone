@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-function EditionsAddons() {
+function EditionsAddons({ id }) {
   const [editions, setEditions] = useState([]);
   const [addOns, setAddOns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/editions/1")
+    fetch(`http://localhost:3001/api/editions/${id}`)
       .then((result) => {
         if (result.status === 404) {
           return [];
@@ -15,7 +15,7 @@ function EditionsAddons() {
       })
       .then((data) => setEditions(data));
 
-    fetch("http://localhost:3001/api/add-ons/1")
+    fetch(`http://localhost:3001/api/add-ons/${id}`)
       .then((result) => {
         if (result.status === 404) {
           return [];
@@ -24,7 +24,7 @@ function EditionsAddons() {
         }
       })
       .then((data) => setAddOns(data));
-  }, []);
+  }, [id]);
 
   const display = (item) => {
     let type = "EDITION";
