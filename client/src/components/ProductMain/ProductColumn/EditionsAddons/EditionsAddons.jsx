@@ -10,18 +10,17 @@ function EditionsAddons() {
         if (result.status === 404) {
           return [];
         } else {
-          return result.json()
+          return result.json();
         }
       })
-      .then((data) => setEditions(data))
-      
+      .then((data) => setEditions(data));
 
     fetch("http://localhost:3001/api/add-ons/1")
       .then((result) => {
         if (result.status === 404) {
           return [];
         } else {
-          return result.json()
+          return result.json();
         }
       })
       .then((data) => setAddOns(data));
@@ -34,7 +33,7 @@ function EditionsAddons() {
     }
     return (
       <div className="flex flex-col mb-5" key={item.id}>
-        <div className="flex bg-neutral-800 border-b border-neutral-700">
+        <div className="flex bg-neutral-800 border-b border-neutral-700 rounded">
           <a href={item.pageUrl} target="_blank">
             <img className="w-72 h-40" src={item.image} alt={item.name} />
           </a>
@@ -61,7 +60,21 @@ function EditionsAddons() {
           <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
             ADD TO CART
           </button>
-          <button className="flex justify-center items-center px-8 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
+          <button className="flex justify-center items-center text-sm px-8 py-3 border border-neutral-700 rounded transition-all ease-linear hover:bg-neutral-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6 mr-1"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
             ADD TO WISHLIST
           </button>
         </div>
