@@ -31,6 +31,7 @@ app.get("/api/media", async (req, res) => {
   }
 });
 
+
 app.get("/api/media/:product_id", async (req, res) => {
   let id = req.params.product_id;
   try{
@@ -40,6 +41,27 @@ app.get("/api/media/:product_id", async (req, res) => {
     res.status(500).json({message:`Something went wrong: ${err}`})
   }
 });
+
+app.get("/api/product", async (req, res) => {
+  try{
+    let result = await pool.query('SELECT * FROM product')
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({message:`Something went wrong: ${err}`})
+  }
+});
+
+app.get("/api/product/:id", async (req, res) => {
+  let id = req.params.id;
+  try{
+    let result = await pool.query(`SELECT * FROM product WHERE id = $1 order by id`, [id])
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({message:`Something went wrong: ${err}`})
+  }
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
