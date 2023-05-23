@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-function EditionsAddons() {
+function EditionsAddons({ id }) {
   const [editions, setEditions] = useState([]);
   const [addOns, setAddOns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/editions/1")
+    fetch(`http://localhost:3001/api/editions/${id}`)
       .then((result) => {
         if (result.status === 404) {
           return [];
@@ -15,7 +15,7 @@ function EditionsAddons() {
       })
       .then((data) => setEditions(data));
 
-    fetch("http://localhost:3001/api/add-ons/1")
+    fetch(`http://localhost:3001/api/add-ons/${id}`)
       .then((result) => {
         if (result.status === 404) {
           return [];
@@ -24,7 +24,7 @@ function EditionsAddons() {
         }
       })
       .then((data) => setAddOns(data));
-  }, []);
+  }, [id]);
 
   const display = (item) => {
     let type = "EDITION";
@@ -33,9 +33,9 @@ function EditionsAddons() {
     }
     return (
       <div className="flex flex-col mb-5" key={item.id}>
-        <div className="flex bg-neutral-800 border-b border-neutral-700 rounded">
+        <div className="flex bg-neutral-800 border-b border-neutral-700 rounded-t">
           <a href={item.pageUrl} target="_blank">
-            <img className="w-72 h-40" src={item.image} alt={item.name} />
+            <img className="w-72 h-40 rounded-ss" src={item.image} alt={item.name} />
           </a>
           <div>
             <div className="flex flex-row">
@@ -55,7 +55,7 @@ function EditionsAddons() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-end items-center p-5 gap-3 bg-neutral-800">
+        <div className="flex flex-row justify-end items-center p-5 gap-3 bg-neutral-800 rounded-b">
           <div className="text-lg">${item.price}</div>
           <button className="flex justify-center items-center px-12 py-3 border border-neutral-700 rounded-sm transition-all ease-linear hover:bg-neutral-700">
             ADD TO CART
