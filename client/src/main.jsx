@@ -6,6 +6,7 @@ import ErrorPage from "./errorPage";
 import ProductPage, { loader as productLoader } from "./routes/product.jsx";
 import SignIn from "./routes/signin.jsx";
 import "./index.css";
+import { AppProvider } from "./appContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>
 );

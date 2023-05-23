@@ -1,4 +1,20 @@
+import { useContext } from "react";
+import { AppContext } from "../../../appContext";
+
 function ProductDetails({ product }) {
+  const { cartItems, setCartItems } = useContext(AppContext);
+  const { wishlistItems, setWishlistItems } = useContext(AppContext);
+
+  const handleAddToCart = () => {
+    setCartItems([...cartItems, product]);
+    console.log("Product added to cart");
+  };
+
+  const handleAddToWishlist = () => {
+    setWishlistItems([...wishlistItems, product]);
+    console.log("Product added to wishlist");
+  };
+
   return (
     <div className="flex flex-col">
       <div className="flex justify-center items-center pb-4">
@@ -29,10 +45,16 @@ function ProductDetails({ product }) {
         >
           BUY NOW
         </button>
-        <button className="border border-neutral-400 rounded py-3 transition-all ease-linear hover:bg-neutral-700">
+        <button
+          className="border border-neutral-400 rounded py-3 transition-all ease-linear hover:bg-neutral-700"
+          onClick={handleAddToCart}
+        >
           ADD TO CART
         </button>
-        <button className="border border-neutral-400 text-sm rounded transition-all ease-linear hover:bg-neutral-700">
+        <button
+          className="border border-neutral-400 text-sm rounded transition-all ease-linear hover:bg-neutral-700"
+          onClick={handleAddToWishlist}
+        >
           {/* PlusCircleIcon */}ADD TO WISHLIST
         </button>
       </div>

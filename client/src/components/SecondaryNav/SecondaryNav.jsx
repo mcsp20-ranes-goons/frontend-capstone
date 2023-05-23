@@ -1,6 +1,45 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { useState, useContext } from "react";
+import { AppContext } from "../../appContext";
 
 function SecondaryNav() {
+  const [wishlistOpen, setWishlistOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const { wishlistItems, setWishlistItems } = useContext(AppContext);
+  const { cartItems, setCartItems } = useContext(AppContext);
+
+  const toggleWishlist = (product) => {
+    const isProductInWishlist = wishlistItems.some(
+      (item) => item.id === product.id
+    );
+
+    if (isProductInWishlist) {
+      const updateWishlist = wishlistItems.filter(
+        (item) => item.id !== product.id
+      );
+      setWishlistItems(updateWishlist);
+    } else {
+      setWishlistItems([...wishlistItems, product]);
+    }
+    setWishlistOpen(!wishlistOpen);
+  };
+
+  const toggleCart = (product) => {
+    const isProductInCart = cartItems.some(
+      (item) => item.Price === product.Price
+    );
+
+    if (isProductInCart) {
+      const updateCart = cartItems.filter(
+        (item) => item.Price !== product.Price
+      );
+      setCartItems(updateCart);
+    } else {
+      setCartItems([...cartItems, product]);
+    }
+    setCartOpen(!cartOpen);
+  };
+
   return (
     <div className="flex justify-between items-center my-6">
       <div className="flex gap-4 items-center">
@@ -23,8 +62,22 @@ function SecondaryNav() {
       </div>
 
       <div className="flex gap-2 text-neutral-400">
-        <p>Wishlist</p>
-        <p>Cart</p>
+        <p onClick={toggleWishlist}>Wishlist</p>
+        {wishlistOpen && (
+          <ul>
+            {wishlistItems.map((item) => (
+              <li key={item.id}>{item.Title}</li>
+            ))}
+          </ul>
+        )}
+        <p onClick={toggleCart}> Cart </p>
+        {cartOpen && (
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id}>{item.Title}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
